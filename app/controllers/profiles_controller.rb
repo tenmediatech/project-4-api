@@ -1,4 +1,4 @@
-class ProfilesController < ProtectedController
+class ProfilesController < OpenReadController
   before_action :set_profile, only: %i[update destroy]
 
   # GET /profiles
@@ -10,7 +10,7 @@ class ProfilesController < ProtectedController
 
   # GET /profiles/1
   def show
-    render json: @profile
+    render json: Profile.find(params[:id])
   end
 
   # POST /profiles
